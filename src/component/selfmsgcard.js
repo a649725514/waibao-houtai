@@ -9,8 +9,8 @@ export default class Selfmeaasge extends Component {
         src: require('../pic/01.png'),
         src1: null,
         src2: null,
-        email: '',
-        tel: ''
+        email: '18100171728@qq.com',
+        tel: '18100171728'
     };
     constructor(props) {
         super(props);

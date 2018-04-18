@@ -27,6 +27,8 @@ export default class Projectcheck extends Component {
                 }}></div>
                 <Checkheader />
                 <Checkitem />
+                <Checkitem projectname={'项目C'} />
+                <Checkitem projectname={'项目D'} name={'王五'} />
                 <div style={{
                     width: this.state.width * 0.85,
                     display: 'flex',

@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 export default class Workskill extends Component {
     static defaultProps = {
         src: null,
-        skills: ['JavaScript']
+        skills: ['JavaScript','CSS','html5']
     };
     constructor(props) {
         super(props);

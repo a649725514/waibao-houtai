@@ -26,7 +26,7 @@ export default class Waibaomessage extends Component {
                 justifyContent:'flex-start',
                 alignItems:'center'
             }}>
-                <Topbar title="发包者信息" />
+                <Topbar title="接包者信息" />
                 <Scrollbars style={{width:this.state.width*0.85,height:this.state.height*0.94}}>
                     <Selfmsgcard src1={require('../icon/chevron-left.svg')} src2={require('../icon/pencil-w.svg')} />
                     <Bolddivider />
@@ -35,6 +35,32 @@ export default class Waibaomessage extends Component {
                     <Workexp />
                     <Bolddivider />
                     <Workskill />
+                    <Bolddivider />
+                    <div style={{
+                        display:'flex',
+                        width:this.state.width*0.85,
+                        height:this.state.height*0.05,
+                        backgroundColor:'white',
+                        flexDirection:'column',
+                        justifyContent:'center',
+                        alignItems:'flex-start',
+                        borderBottom:'solid',
+                        borderBottomColor:'#e9e9e9',
+                        borderBottomWidth:1
+                    }}>
+                        <h style={{color:'black',marginLeft:20}}>{'最近工作时间'}</h>
+                    </div>
+                    <div style={{
+                        display:'flex',
+                        width:this.state.width*0.85,
+                        height:50,
+                        backgroundColor:'white',
+                        flexDirection:'column',
+                        justifyContent:'center',
+                        alignItems:'flex-start',
+                    }}>
+                        <h style={{marginLeft:20}}>{'2018/04/17/9:00-2018/04/17/17:00'}</h>
+                    </div>
                     <Bolddivider />
                 </Scrollbars>
             </div>

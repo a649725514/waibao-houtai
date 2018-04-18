@@ -23,84 +23,56 @@ class Contact extends Component {
 
     }
 
-    onChange = (page) => {
-        if (this.state.persion[page * 6 - 5 + 1] == null) {
-            var url = 'http://120.78.74.75:8080/demo/s/getUserMsg?page=' + (page - 1); // 接口url
-            fetch(url, {
-                "method": 'POST',
-                "headers": {
-                    "Authorization": "Bearer " + this.state.token,
-                    "Content-Type": "application/json",
-                },
-            }).then(
-                function (res) {
-                    if (res.ok) {
-                        // console.log(res.json());
-                        return res.json()
-                    } else {
-                        { this.LogError(res) }
-                    }
-                }
-            ).then((PromiseValue) => {
-                for (var i = 0; i < PromiseValue.length; i++) {
-                    this.state.persion[page * 6 - 5 + i] = PromiseValue[i];
-                }
-                this.setState({ current: page })
-            });
-        } else {
-            this.setState({ current: page })
+    // Fs
 
-        }
-    }
+    // componentWillMount() {
 
-    componentWillMount() {
+    //     var url1 = 'http://120.78.74.75:8080/demo/s/getCountsOfUser'; // 接口url
+    //     fetch(url1, {
+    //         "method": 'GET',
+    //         "headers": {
+    //             "Authorization": "Bearer " + this.state.token,
+    //             "Content-Type": "application/json",
+    //         },
+    //     }).then(
+    //         function (res) {
+    //             if (res.ok) {
+    //                 // console.log(res.json());
+    //                 return res.json()
 
-        var url1 = 'http://120.78.74.75:8080/demo/s/getCountsOfUser'; // 接口url
-        fetch(url1, {
-            "method": 'GET',
-            "headers": {
-                "Authorization": "Bearer " + this.state.token,
-                "Content-Type": "application/json",
-            },
-        }).then(
-            function (res) {
-                if (res.ok) {
-                    // console.log(res.json());
-                    return res.json()
-
-                } else {
-                    { this.LogError(res) }
-                }
-            }
-        ).then((PromiseValue) => {
-            this.setState({ persion: new Array(PromiseValue) });
-            var url = 'http://120.78.74.75:8080/demo/s/getUserMsg?page=0'; // 接口url
-            fetch(url, {
-                "method": 'POST',
-                "headers": {
-                    "Authorization": "Bearer " + this.state.token,
-                    "Content-Type": "application/json",
-                },
-            }).then(
-                function (res) {
-                    if (res.ok) {
-                        // console.log(res.json());
-                        return res.json()
-                    } else {
-                        { this.LogError(res) }
-                    }
-                }
-            ).then((PromiseValue) => {
-                for (var i = 0; i < PromiseValue.length; i++) {
-                    this.state.persion[1 + i] = PromiseValue[i];
-                }
-                this.setState({ current: 1 })
-            });
-        })
+    //             } else {
+    //                 { this.LogError(res) }
+    //             }
+    //         }
+    //     ).then((PromiseValue) => {
+    //         this.setState({ persion: new Array(PromiseValue) });
+    //         var url = 'http://120.78.74.75:8080/demo/s/getUserMsg?page=0'; // 接口url
+    //         fetch(url, {
+    //             "method": 'POST',
+    //             "headers": {
+    //                 "Authorization": "Bearer " + this.state.token,
+    //                 "Content-Type": "application/json",
+    //             },
+    //         }).then(
+    //             function (res) {
+    //                 if (res.ok) {
+    //                     // console.log(res.json());
+    //                     return res.json()
+    //                 } else {
+    //                     { this.LogError(res) }
+    //                 }
+    //             }
+    //         ).then((PromiseValue) => {
+    //             for (var i = 0; i < PromiseValue.length; i++) {
+    //                 this.state.persion[1 + i] = PromiseValue[i];
+    //             }
+    //             this.setState({ current: 1 })
+    //         });
+    //     })
 
 
 
-    }
+    // }
     render() {
         return (
             <div style={{
@@ -166,7 +138,7 @@ class Contact extends Component {
                     flexWrap: 'wrap',
                     marginTop: 20,
                 }}>
-                    {this.state.persion.slice(this.state.current * 6 - 5, this.state.current * 6 + 1).map((persionInfo) => {
+                    {/* {this.state.persion.slice(this.state.current * 6 - 5, this.state.current * 6 + 1).map((persionInfo) => {
                         return (
                             <div>
                                 <Link to={`/othermessage/` + persionInfo.workNumber}>
@@ -174,7 +146,13 @@ class Contact extends Component {
                                 </Link>
                             </div>
                         )
-                    })}
+                    })} */}
+                    <Contactcard src={require('../pic/z3.png')} name={'张三'} company={'A外包公司'} skills={'JavaScript,CSS,html5'} />
+                    <Contactcard src={require('../pic/l4.png')} name={'李四'} company={'A外包公司'} skills={'JavaScript,CSS,html5'} />
+                    <Contactcard src={require('../pic/w5.png')} name={'王五'} company={'A外包公司'} skills={'JavaScript,CSS,html5'} />
+                    <Contactcard src={require('../pic/zc.png')} name={'张彩'} company={'A外包公司'} skills={'JavaScript,CSS,html5'} />
+                    <Contactcard src={require('../pic/zxh.png')} name={'张晓红'} company={'A外包公司'} skills={'JavaScript,CSS,html5'} />
+                    <Contactcard src={require('../pic/z6.png')} name={'赵六'} company={'A外包公司'} skills={'JavaScript,CSS,html5'} />
 
                 </div>
                 <div style={{
